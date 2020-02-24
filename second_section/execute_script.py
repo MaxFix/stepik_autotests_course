@@ -7,7 +7,7 @@ def calc(x):
     return str(math.log(abs(12 * math.sin(int(x)))))
 
 
-link = "http://suninjuly.github.io/get_attribute.html"
+link = "http://suninjuly.github.io/execute_script.html"
 
 browser = webdriver.Chrome()
 
@@ -15,11 +15,12 @@ browser = webdriver.Chrome()
 try:
 
     browser.get(link)
-    treasure_pic = browser.find_element_by_id("treasure")
-    x = treasure_pic.get_attribute("valuex")
+    x_value = browser.find_element_by_id("input_value")
+    x = x_value.text
 
-    answer_element = browser.find_element_by_id("answer")
-    answer_element.send_keys(calc(x))
+    value_field = browser.find_element_by_id("answer")
+    browser.execute_script("return arguments[0].scrollIntoView(true);", value_field)
+    value_field.send_keys(calc(x))
 
     checkbox = browser.find_element_by_id("robotCheckbox")
     checkbox.click()
