@@ -1,14 +1,11 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
-from .locators import MainPageLocators
+from  .locators import MainPageLocators
 
 
 class MainPage(BasePage):
+    def __init__(self, *args, **kwargs):
+        super(MainPage, self).__init__(*args, **kwargs)
 
-    def should_be_login_link(self):
-        self.browser.find_element(By.CSS_SELECTOR, "#login_link"), "Login link is not presented"
-        assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
-
-    def go_to_login_page(self):
-        link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+    def go_to_basket_top(self):
+        link = self.browser.find_element(*MainPageLocators.TOP_BASKET_LINK)
         link.click()
