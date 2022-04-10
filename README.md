@@ -1,2 +1,2 @@
-Это репозиторий для храниния заданий для самостоятельного выполнения 
-по курсу Автоматизация тестирования с помощью Selenium и Python на stepik.org
+This is repo just for study web-automation on Python lang
+Stepik.org course Python automatisation on Python
